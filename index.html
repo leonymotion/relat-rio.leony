@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Leony Heverton Xavier Rodrigues - 20240045200">
+
+<title>Introdução ao Git, GitHub e conceitos iniciais da linguagem de programação Python.</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="index_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="index_files/libs/quarto-html/anchor.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="index_files/libs/bootstrap/bootstrap-813c323200a87c37e262811031999de4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Índice</h2>
+   
+  <ul>
+  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">1</span> Introdução</a></li>
+  <li><a href="#história-do-git-e-github" id="toc-história-do-git-e-github" class="nav-link" data-scroll-target="#história-do-git-e-github"><span class="header-section-number">2</span> História do Git e GitHub</a>
+  <ul class="collapse">
+  <li><a href="#git" id="toc-git" class="nav-link" data-scroll-target="#git"><span class="header-section-number">2.1</span> Git</a></li>
+  <li><a href="#github" id="toc-github" class="nav-link" data-scroll-target="#github"><span class="header-section-number">2.2</span> GitHub</a></li>
+  </ul></li>
+  <li><a href="#git-e-github-guia-prático" id="toc-git-e-github-guia-prático" class="nav-link" data-scroll-target="#git-e-github-guia-prático"><span class="header-section-number">3</span> Git e GitHub: Guia Prático</a>
+  <ul class="collapse">
+  <li><a href="#criando-conta-no-github" id="toc-criando-conta-no-github" class="nav-link" data-scroll-target="#criando-conta-no-github"><span class="header-section-number">3.1</span> 1. Criando Conta no GitHub</a></li>
+  <li><a href="#instalação-do-git" id="toc-instalação-do-git" class="nav-link" data-scroll-target="#instalação-do-git"><span class="header-section-number">3.2</span> 2. Instalação do Git</a>
+  <ul class="collapse">
+  <li><a href="#verificando-a-instalação" id="toc-verificando-a-instalação" class="nav-link" data-scroll-target="#verificando-a-instalação"><span class="header-section-number">3.2.1</span> Verificando a instalação</a></li>
+  </ul></li>
+  <li><a href="#configuração-inicial-do-git" id="toc-configuração-inicial-do-git" class="nav-link" data-scroll-target="#configuração-inicial-do-git"><span class="header-section-number">3.3</span> 3. Configuração Inicial do Git</a>
+  <ul class="collapse">
+  <li><a href="#verificando-a-alteração." id="toc-verificando-a-alteração." class="nav-link" data-scroll-target="#verificando-a-alteração."><span class="header-section-number">3.3.1</span> Verificando a alteração.</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#comandos-iniciais-git" id="toc-comandos-iniciais-git" class="nav-link" data-scroll-target="#comandos-iniciais-git"><span class="header-section-number">4</span> Comandos iniciais Git:</a>
+  <ul class="collapse">
+  <li><a href="#exemplo-de-commit-e-repositório-enviado-ao-github" id="toc-exemplo-de-commit-e-repositório-enviado-ao-github" class="nav-link" data-scroll-target="#exemplo-de-commit-e-repositório-enviado-ao-github"><span class="header-section-number">4.1</span> 4. Exemplo de commit e repositório enviado ao GitHub:</a>
+  <ul class="collapse">
+  <li><a href="#criei-uma-pasta-em-minha-área-de-trabalho-e-inseri-um-arquivo-de-texto-genérico." id="toc-criei-uma-pasta-em-minha-área-de-trabalho-e-inseri-um-arquivo-de-texto-genérico." class="nav-link" data-scroll-target="#criei-uma-pasta-em-minha-área-de-trabalho-e-inseri-um-arquivo-de-texto-genérico."><span class="header-section-number">4.1.1</span> 1. Criei uma pasta em minha área de trabalho e inseri um arquivo de texto genérico.</a></li>
+  <li><a href="#em-seguida-cliquei-com-o-botão-direito-do-mouse-dentro-da-basta-e-apertei-o-botão-open-git-bash-here" id="toc-em-seguida-cliquei-com-o-botão-direito-do-mouse-dentro-da-basta-e-apertei-o-botão-open-git-bash-here" class="nav-link" data-scroll-target="#em-seguida-cliquei-com-o-botão-direito-do-mouse-dentro-da-basta-e-apertei-o-botão-open-git-bash-here"><span class="header-section-number">4.1.2</span> 2. Em seguida, cliquei com o botão direito do mouse dentro da basta e apertei o botão <strong>Open Git Bash Here</strong></a></li>
+  <li><a href="#criando-um-repositório-com-git-init." id="toc-criando-um-repositório-com-git-init." class="nav-link" data-scroll-target="#criando-um-repositório-com-git-init."><span class="header-section-number">4.1.3</span> 3. Criando um repositório com <code>git init</code>.</a></li>
+  <li><a href="#enviado-o-repositório-ao-github." id="toc-enviado-o-repositório-ao-github." class="nav-link" data-scroll-target="#enviado-o-repositório-ao-github."><span class="header-section-number">4.1.4</span> 5. Enviado o repositório ao GitHub.</a></li>
+  </ul></li>
+  <li><a href="#como-clonar-projetos-já-criados-do-github-para-sua-máquina-local." id="toc-como-clonar-projetos-já-criados-do-github-para-sua-máquina-local." class="nav-link" data-scroll-target="#como-clonar-projetos-já-criados-do-github-para-sua-máquina-local."><span class="header-section-number">4.2</span> 5. Como clonar projetos já criados do GitHub, para sua máquina local.</a></li>
+  </ul></li>
+  <li><a href="#pip" id="toc-pip" class="nav-link" data-scroll-target="#pip"><span class="header-section-number">5</span> Pip</a>
+  <ul class="collapse">
+  <li><a href="#o-que-é-o-pip" id="toc-o-que-é-o-pip" class="nav-link" data-scroll-target="#o-que-é-o-pip"><span class="header-section-number">5.1</span> O que é o pip?</a></li>
+  </ul></li>
+  <li><a href="#verifique-se-o-pip-está-instalado-em-sua-máquina" id="toc-verifique-se-o-pip-está-instalado-em-sua-máquina" class="nav-link" data-scroll-target="#verifique-se-o-pip-está-instalado-em-sua-máquina"><span class="header-section-number">6</span> Verifique se o pip está instalado em sua máquina</a>
+  <ul class="collapse">
+  <li><a href="#comandos-básicos-de-pip" id="toc-comandos-básicos-de-pip" class="nav-link" data-scroll-target="#comandos-básicos-de-pip"><span class="header-section-number">6.1</span> Comandos básicos de pip</a>
+  <ul class="collapse">
+  <li><a href="#exemplo-de-instalação-e-alteração-de-pacotes" id="toc-exemplo-de-instalação-e-alteração-de-pacotes" class="nav-link" data-scroll-target="#exemplo-de-instalação-e-alteração-de-pacotes"><span class="header-section-number">6.1.1</span> Exemplo de instalação e alteração de pacotes</a></li>
+  <li><a href="#atualizando-o-paconte-instalado" id="toc-atualizando-o-paconte-instalado" class="nav-link" data-scroll-target="#atualizando-o-paconte-instalado"><span class="header-section-number">6.1.2</span> Atualizando o paconte instalado</a></li>
+  <li><a href="#desinstalando-o-pacote-instalado" id="toc-desinstalando-o-pacote-instalado" class="nav-link" data-scroll-target="#desinstalando-o-pacote-instalado"><span class="header-section-number">6.1.3</span> Desinstalando o pacote instalado</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#exemplos-de-bibliotecas-populares-do-python" id="toc-exemplos-de-bibliotecas-populares-do-python" class="nav-link" data-scroll-target="#exemplos-de-bibliotecas-populares-do-python"><span class="header-section-number">7</span> Exemplos de bibliotecas populares do Python</a>
+  <ul class="collapse">
+  <li><a href="#pandas" id="toc-pandas" class="nav-link" data-scroll-target="#pandas"><span class="header-section-number">7.0.1</span> <code>pandas</code></a></li>
+  <li><a href="#numpy" id="toc-numpy" class="nav-link" data-scroll-target="#numpy"><span class="header-section-number">7.0.2</span> <code>numpy</code></a></li>
+  <li><a href="#matplotlib" id="toc-matplotlib" class="nav-link" data-scroll-target="#matplotlib"><span class="header-section-number">7.0.3</span> <code>matplotlib</code></a></li>
+  <li><a href="#requests" id="toc-requests" class="nav-link" data-scroll-target="#requests"><span class="header-section-number">7.0.4</span> <code>requests</code></a></li>
+  </ul></li>
+  <li><a href="#conceitos-iniciais-da-linguagem-python." id="toc-conceitos-iniciais-da-linguagem-python." class="nav-link" data-scroll-target="#conceitos-iniciais-da-linguagem-python."><span class="header-section-number">8</span> Conceitos iniciais da linguagem python.</a>
+  <ul class="collapse">
+  <li><a href="#instalação-da-linguagem-python." id="toc-instalação-da-linguagem-python." class="nav-link" data-scroll-target="#instalação-da-linguagem-python."><span class="header-section-number">8.1</span> Instalação da linguagem python.</a></li>
+  <li><a href="#tipos-de-dados" id="toc-tipos-de-dados" class="nav-link" data-scroll-target="#tipos-de-dados"><span class="header-section-number">8.2</span> Tipos de dados:</a></li>
+  <li><a href="#variáveis-e-operadores-básicos" id="toc-variáveis-e-operadores-básicos" class="nav-link" data-scroll-target="#variáveis-e-operadores-básicos"><span class="header-section-number">8.3</span> Variáveis e operadores básicos</a></li>
+  <li><a href="#operadores-aritméticos" id="toc-operadores-aritméticos" class="nav-link" data-scroll-target="#operadores-aritméticos"><span class="header-section-number">8.4</span> Operadores Aritméticos</a></li>
+  <li><a href="#operadores-relacionais-comparação" id="toc-operadores-relacionais-comparação" class="nav-link" data-scroll-target="#operadores-relacionais-comparação"><span class="header-section-number">8.5</span> Operadores Relacionais (Comparação)</a></li>
+  <li><a href="#operadores-lógicos" id="toc-operadores-lógicos" class="nav-link" data-scroll-target="#operadores-lógicos"><span class="header-section-number">8.6</span> Operadores Lógicos</a></li>
+  <li><a href="#listas-tuplas-e-dicionários" id="toc-listas-tuplas-e-dicionários" class="nav-link" data-scroll-target="#listas-tuplas-e-dicionários"><span class="header-section-number">8.7</span> Listas, tuplas e dicionários</a>
+  <ul class="collapse">
+  <li><a href="#listas-list" id="toc-listas-list" class="nav-link" data-scroll-target="#listas-list"><span class="header-section-number">8.7.1</span> Listas (<code>list</code>)</a></li>
+  <li><a href="#tuplas-tuple" id="toc-tuplas-tuple" class="nav-link" data-scroll-target="#tuplas-tuple"><span class="header-section-number">8.7.2</span> Tuplas (<code>tuple</code>)</a></li>
+  <li><a href="#dicionarios-dict" id="toc-dicionarios-dict" class="nav-link" data-scroll-target="#dicionarios-dict"><span class="header-section-number">8.7.3</span> Dicionarios (<code>dict</code>)</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Introdução ao Git, GitHub e conceitos iniciais da linguagem de programação Python.</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Leony Heverton Xavier Rodrigues - 20240045200 </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introdução" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introdução</h1>
+<hr>
+</section>
+<section id="história-do-git-e-github" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> História do Git e GitHub</h1>
+<section id="git" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="git"><span class="header-section-number">2.1</span> Git</h2>
+<p>O Git foi criado por <strong>Linus Benedict Torvalds</strong> (nascido em Helsinque, em 28 de dezembro de 1969), engenheiro de software conhecido também por desenvolver o kernel do sistema operacional Linux.</p>
+<p>O Git é um sistema de controle de versões <strong>distribuído</strong>, <strong>gratuito</strong> e <strong>de código aberto</strong>, amplamente utilizado para rastrear alterações em arquivos — principalmente em projetos de desenvolvimento de software. Ele permite a criação de várias linhas de desenvolvimento por meio de ramificações (branches), possibilitando colaboração simultânea de diversos desenvolvedores ao redor do mundo.</p>
+</section>
+<section id="github" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="github"><span class="header-section-number">2.2</span> GitHub</h2>
+<p>O GitHub foi lançado em 2008, idealizado por <strong>Chris Wanstrath</strong>, <strong>P. J. Hyett</strong>, <strong>Tom Preston-Werner</strong> e <strong>Scott Chacon</strong>. É uma plataforma de hospedagem de código-fonte com controle de versão usando o Git.</p>
+<p>É conhecida como a “<strong>rede social dos programadores</strong>”, pois permite interação entre usuários, visualização de projetos, contribuições públicas e colaboração em tempo real. Em 2018, a Microsoft adquiriu o GitHub por <strong>US$ 7,5 bilhões</strong>.</p>
+<p>O GitHub também oferece ferramentas adicionais, como o <strong>Copilot</strong>, uma inteligência artificial desenvolvida em parceria com a OpenAI. Ele sugere ou escreve automaticamente trechos de código dentro de IDEs como o Visual Studio Code, com suporte a linguagens como Python, JavaScript, TypeScript, Ruby, R, entre outras.</p>
+<hr>
+</section>
+</section>
+<section id="git-e-github-guia-prático" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Git e GitHub: Guia Prático</h1>
+<section id="criando-conta-no-github" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="criando-conta-no-github"><span class="header-section-number">3.1</span> 1. Criando Conta no GitHub</h2>
+<ul>
+<li>Antes de usar o Git de forma prática, é necessário criar uma conta no GitHub:</li>
+</ul>
+<ol type="1">
+<li>Acesse: <a href="https://github.com">https://github.com</a></li>
+<li>Clique em <strong>Entrar</strong>, ou <strong>Crie uma Conta</strong>.</li>
+<li>Preencha com e-mail, nome de usuário e senha.</li>
+<li>Após o cadastro, personalize seu perfil.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagens/imagem2.png" class="img-fluid figure-img"></p>
+<figcaption>Criar conta no GitHub</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="instalação-do-git" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="instalação-do-git"><span class="header-section-number">3.2</span> 2. Instalação do Git</h2>
+<p>Para instalar o Git:</p>
+<ol type="1">
+<li>Acesse o site oficial: <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></li>
+<li>Selecione seu sistema operacional (Windows, macOS ou Linux).</li>
+<li>Siga os passos de instalação.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagens/imagem1.png" class="img-fluid figure-img"></p>
+<figcaption>Website da instalação do Git</figcaption>
+</figure>
+</div>
+<section id="verificando-a-instalação" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="verificando-a-instalação"><span class="header-section-number">3.2.1</span> Verificando a instalação</h3>
+<ul>
+<li>Após a instalação, abra o terminal (Prompt de Comando no Windows, ou Terminal no Linux/macOS) e digite:</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="configuração-inicial-do-git" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="configuração-inicial-do-git"><span class="header-section-number">3.3</span> 3. Configuração Inicial do Git</h2>
+<ul>
+<li><p>Depois de instalar o Git, configure seu nome e e-mail — os mesmos usados na criação da conta do GitHub. Esses dados identificam o autor das alterações feitas nos projetos.</p></li>
+<li><p>Execute os seguintes comandos no terminal:</p></li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Seu Nome no GitHub"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"seuemail@exemplo.com"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="verificando-a-alteração." class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="verificando-a-alteração."><span class="header-section-number">3.3.1</span> Verificando a alteração.</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagens/imagem3.png" class="img-fluid figure-img"></p>
+<figcaption>Dados pessais configurados.</figcaption>
+</figure>
+</div>
+</section>
+</section>
+</section>
+<section id="comandos-iniciais-git" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Comandos iniciais Git:</h1>
+<ol type="1">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Exibe o estado atual dos arquivos no repositório: quais foram modificados, adicionados ou não rastreados.</li>
+</ul>
+<ol start="2" type="1">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Inicializa um repositório Git em uma pasta local (cria um diretório oculto chamado .git).</li>
+</ul>
+<ol start="3" type="1">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Adiciona arquivos ao staging area (área de preparação para o commit).</li>
+</ul>
+<ol start="4" type="1">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-a</span> <span class="at">-m</span> <span class="st">"nome do commit"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Registra as alterações adicionadas, criando uma nova versão no histórico.</li>
+</ul>
+<ol start="5" type="1">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Mostra o histórico de commits realizados no repositório.</li>
+</ul>
+<ol start="6" type="1">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin master</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Envia as versões criadas (commits) locais para um repositório remoto (GitHub configurado anteriormente).</li>
+</ul>
+<ol start="7" type="1">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin master</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Atualiza seu repositório local com as alterações que estão no repositório remoto.</li>
+</ul>
+<ol start="8" type="1">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch          <span class="co"># Lista as branches</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch nome     <span class="co"># Cria uma nova branch</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout nome   <span class="co"># Troca para uma branch</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Lista, cria ou exclui ramificações (branches) no projeto. Muito usado para trabalhar em funcionalidades separadas sem afetar a versão principal.</li>
+</ul>
+<section id="exemplo-de-commit-e-repositório-enviado-ao-github" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="exemplo-de-commit-e-repositório-enviado-ao-github"><span class="header-section-number">4.1</span> 4. Exemplo de commit e repositório enviado ao GitHub:</h2>
+<section id="criei-uma-pasta-em-minha-área-de-trabalho-e-inseri-um-arquivo-de-texto-genérico." class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="criei-uma-pasta-em-minha-área-de-trabalho-e-inseri-um-arquivo-de-texto-genérico."><span class="header-section-number">4.1.1</span> 1. Criei uma pasta em minha área de trabalho e inseri um arquivo de texto genérico.</h3>
+</section>
+<section id="em-seguida-cliquei-com-o-botão-direito-do-mouse-dentro-da-basta-e-apertei-o-botão-open-git-bash-here" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="em-seguida-cliquei-com-o-botão-direito-do-mouse-dentro-da-basta-e-apertei-o-botão-open-git-bash-here"><span class="header-section-number">4.1.2</span> 2. Em seguida, cliquei com o botão direito do mouse dentro da basta e apertei o botão <strong>Open Git Bash Here</strong></h3>
+<p><img src="imagens/imagem5.png" class="img-fluid"></p>
+</section>
+<section id="criando-um-repositório-com-git-init." class="level3" data-number="4.1.3">
+<h3 data-number="4.1.3" class="anchored" data-anchor-id="criando-um-repositório-com-git-init."><span class="header-section-number">4.1.3</span> 3. Criando um repositório com <code>git init</code>.</h3>
+<p><img src="imagens/imagem6.png" class="img-fluid"></p>
+<ul>
+<li>Veja que ao criar um repositório, um nova pasta oculta <code>.git</code> é gerada dentro da pasta que você criou esse repositório. Isso significa que está tudo certo e seu repositório foi criado com sucesso.</li>
+</ul>
+<p><img src="imagens/imagem7.png" class="img-fluid" width="500"></p>
+<section id="para-criar-um-commit-nesse-repositório-é-necessário-utilizar-o-comando-git-add-..-o-.-após-o-add-serve-para-incluir-todos-os-arquivos-dentro-da-pasta-em-que-o-repositório-foi-criado." class="level4" data-number="4.1.3.1">
+<h4 data-number="4.1.3.1" class="anchored" data-anchor-id="para-criar-um-commit-nesse-repositório-é-necessário-utilizar-o-comando-git-add-..-o-.-após-o-add-serve-para-incluir-todos-os-arquivos-dentro-da-pasta-em-que-o-repositório-foi-criado."><span class="header-section-number">4.1.3.1</span> 4. Para criar um commit nesse repositório é necessário utilizar o comando <code>git add .</code>. O <strong>“.”</strong> após o <strong>add</strong> serve para incluir todos os arquivos dentro da pasta em que o repositório foi criado.</h4>
+<p><img src="imagens/imagem8.png" class="img-fluid"></p>
+<ul>
+<li>Após preparar o arquivo para ser versionado, utilizamos o comando <code>git commit -a -m "commit"</code> para commitar essse arquivo. Dessa forma:</li>
+</ul>
+<p><img src="imagens/imagem9.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="enviado-o-repositório-ao-github." class="level3" data-number="4.1.4">
+<h3 data-number="4.1.4" class="anchored" data-anchor-id="enviado-o-repositório-ao-github."><span class="header-section-number">4.1.4</span> 5. Enviado o repositório ao GitHub.</h3>
+<ul>
+<li>Precisamos criar um novo repositório no GitHub. Você pode alterar as configurações de criação. Dessa forma:</li>
+</ul>
+<p><img src="imagens/imagem10.png" class="img-fluid"></p>
+<ul>
+<li>Após criar o repositório, utilizamos o comando <code>git remote add origin link do repositório</code> no git para conectar os z</li>
+</ul>
+<p><img src="imagens/imagem11.png" class="img-fluid"></p>
+<ul>
+<li>Com o arquivo commitado, utilizamos o comando <code>git push origin master</code> para enviar o repositório ao GitHub.</li>
+</ul>
+<p><img src="imagens/imagem12.png" class="img-fluid" width="700"></p>
+<ul>
+<li>Abrindo o repositório criado no GitHub, verificamos que o commmit foi enviado com sucesso.</li>
+</ul>
+<p><img src="imagens/imagem13.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="como-clonar-projetos-já-criados-do-github-para-sua-máquina-local." class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="como-clonar-projetos-já-criados-do-github-para-sua-máquina-local."><span class="header-section-number">4.2</span> 5. Como clonar projetos já criados do GitHub, para sua máquina local.</h2>
+<ul>
+<li>Verifique o repositório que você deseja clonar em sua máquina. Vou utilizar um repositório próprio, previamente deletado.</li>
+</ul>
+<ol type="1">
+<li>Clique no botão verde “Code”</li>
+<li>Copie a URL</li>
+</ol>
+<p><img src="imagens/imagem14.png" class="img-fluid"></p>
+<ol start="3" type="1">
+<li>Abra o terminal Git CMD</li>
+<li>Acesse a pasta onde deseja salvar o projeto</li>
+<li>Use o comando <code>git clone url copiado</code></li>
+</ol>
+<p><img src="imagens/imagem15.png" class="img-fluid"></p>
+<ul>
+<li>Na pasta selecionada, podemos ver que o repositório foi clonado com sucesso.</li>
+</ul>
+<p><img src="imagens/imagem16.png" class="img-fluid"></p>
+<ul>
+<li>Com o comando git clone, podemos fazer um fork de projetos em outras máquinas e continuar o trabalho em outro local. Em seguida, commitar as alterações, e dar um <code>git push</code> para que as alterações sejam enviadas para o GitHub atualizadas. Caso o projeto não seja de sua autoria, o push subirá como notificação de <strong>pull request</strong> para o autor do projeto, que poderá revisar e aceitar suas mudanças. Se aceitas, suas contribuições passarão a fazer parte do projeto principal, e você será reconhecido como <strong>colaborador</strong>.</li>
+</ul>
+</section>
+</section>
+<section id="pip" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Pip</h1>
+<section id="o-que-é-o-pip" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="o-que-é-o-pip"><span class="header-section-number">5.1</span> O que é o pip?</h2>
+<p><strong>Pip</strong> é o gerenciador de pacotes oficiais do Python. Ele permite instalar, atualizar e remover bibliotecas que podem ser encontradas no site e ferramentas externas, facilitando o uso de funcionalidades adicionais em seus projetos.</p>
+</section>
+</section>
+<section id="verifique-se-o-pip-está-instalado-em-sua-máquina" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Verifique se o pip está instalado em sua máquina</h1>
+<ul>
+<li>Para verificar se o pip está instalado em sua máquina você deve abrir o Promt de comando e digitar:</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Versões do <code>pip</code> são diferentes, dependendo do seu sistema operacional. Verifique no link de instalação mais abaixo a versão ideal para sua máquina.</p>
+</div>
+</div>
+<p>Caso instalado, a seguinte mensagem aparece:</p>
+<p><img src="imagens/imagem17.png" class="img-fluid"></p>
+<p>Do contrário, recomendo a instalação pelo site oficial: <a href="https://pypi.org/project/pip/#files">https://pypi.org/project/pip/#files</a></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>É necessário instalar a linguagem <code>python</code> primeiro, para conseguir instalar o <code>pip</code> com sucesso. A partir da versão <code>3.4</code> o <code>pip</code> vem instalado automaticamente. No tópico <a href="Instalação-da-linguagem-python">8.1</a> deste relatório contém um passo a passo de instalação da linguagem. Sugiro seguir esse passo a passo antes de instalar o <code>pip</code>.</p>
+</div>
+</div>
+<ul>
+<li>Após instalação, verifique novamente com o comando:</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="comandos-básicos-de-pip" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="comandos-básicos-de-pip"><span class="header-section-number">6.1</span> Comandos básicos de pip</h2>
+<ol type="1">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install nome-do-pacote</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Instala os pacotes.</li>
+</ul>
+<ol start="2" type="1">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">--upgrade</span> nome-do-pacote</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Atualiza o pacote instalado à versão mais recente.</li>
+</ul>
+<ol start="3" type="1">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> uninstall nome-do-pacote</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Desinstala um pacote da sua máquina.</li>
+</ul>
+<ol start="4" type="1">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> show nome-do-pacote</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Verifica as informações de um pacote.</li>
+</ul>
+<ol start="5" type="1">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Lista os pacotes instalados.</li>
+</ul>
+<ol start="6" type="1">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> freeze</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>O pip freeze é como o <code>pip list</code>, mas ele só fala as bibliotecas instaladas manualmente por você.</li>
+</ul>
+<ol start="7" type="1">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> freeze <span class="op">&gt;</span> requirements.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Cria um arquivo <code>requirements.txt</code> listando todos os seus pacotes intalados manualmente para o ambiente em que o comando for utilizado</li>
+</ul>
+<ol start="8" type="1">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ao clonar um projeto do GitHub que possui um arquivo <code>requirements.txt</code>, você pode instalar todos os pacotes usados no projeto de forma simples.</p>
+<ul>
+<li><p>Após usar o comando <code>git clone</code>, siga os passos:</p></li>
+<li><p>Acesse a pasta do projeto clonado, onde está localizado o arquivo <code>requirements.txt</code>;</p></li>
+<li><p>No Prompt de comando, execute:</p></li>
+</ul>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Em alguns casos, o arquivo pode ter outro nome. Nesse caso, basta substituir o nome <strong>requirements</strong> pelo do arquivo clonado. Por exemplo <code>pip install -r pacotes.txt</code>.</p>
+<section id="exemplo-de-instalação-e-alteração-de-pacotes" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="exemplo-de-instalação-e-alteração-de-pacotes"><span class="header-section-number">6.1.1</span> Exemplo de instalação e alteração de pacotes</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagens/imagem18.png" class="img-fluid figure-img"></p>
+<figcaption>Comando de instalação</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagens/imagem19.png" class="img-fluid figure-img"></p>
+<figcaption>Pacote instalado com sucesso</figcaption>
+</figure>
+</div>
+</section>
+<section id="atualizando-o-paconte-instalado" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="atualizando-o-paconte-instalado"><span class="header-section-number">6.1.2</span> Atualizando o paconte instalado</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagens/imagem20.png" class="img-fluid figure-img"></p>
+<figcaption>Comando de atualização</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagens/imagem21.png" class="img-fluid figure-img"></p>
+<figcaption>Pacote atualizado</figcaption>
+</figure>
+</div>
+</section>
+<section id="desinstalando-o-pacote-instalado" class="level3" data-number="6.1.3">
+<h3 data-number="6.1.3" class="anchored" data-anchor-id="desinstalando-o-pacote-instalado"><span class="header-section-number">6.1.3</span> Desinstalando o pacote instalado</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagens/imagem22.png" class="img-fluid figure-img"></p>
+<figcaption>Desinstalar</figcaption>
+</figure>
+</div>
+<ul>
+<li>Perceba que após utilizar o <code>pip uninstall</code> ele pede sua confirmação para continuar com a operação. Caso você realmente queira desinstalar, basta escrever <strong>y</strong> e confirmar no prompt de comando.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagens/imagem23.png" class="img-fluid figure-img" width="600"></p>
+<figcaption>Pacote desinstalado após confirmação.</figcaption>
+</figure>
+</div>
+</section>
+</section>
+</section>
+<section id="exemplos-de-bibliotecas-populares-do-python" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Exemplos de bibliotecas populares do Python</h1>
+<p>O Python possui uma vasta quantidade de bibliotecas que facilitam o desenvolvimento de projetos nas mais diversas áreas. Entre eles:</p>
+<section id="pandas" class="level3" data-number="7.0.1">
+<h3 data-number="7.0.1" class="anchored" data-anchor-id="pandas"><span class="header-section-number">7.0.1</span> <code>pandas</code></h3>
+<p>Utilizada para <strong>análise e manipulação de dados</strong>, especialmente em tabelas (DataFrames). É amplamente usada em ciência de dados e estatística. Permite ler arquivos <code>.csv</code>, <code>.xlsx</code> e realizar operações como filtragem, agrupamento, ordenação, entre outras.</p>
+<p>As duas principais estruturas do <code>pandas</code> são:</p>
+<ul>
+<li><strong>DataFrame</strong>: uma tabela bidimensional com rótulos nas linhas e colunas (semelhante a uma planilha Excel ou tabela SQL);</li>
+<li><strong>Series</strong>: uma estrutura unidimensional com rótulo, semelhante a uma coluna de uma tabela.</li>
+</ul>
+<p>Com <code>pandas</code>, é possível:</p>
+<ul>
+<li>Ler e gravar arquivos em diversos formatos: <code>.csv</code>, <code>.xlsx</code>, <code>.json</code>, <code>.sql</code>, entre outros;</li>
+<li>Filtrar, agrupar, ordenar e transformar dados de forma eficiente;</li>
+<li>Tratar dados ausentes (valores nulos);</li>
+<li>Fazer junções (merge) entre tabelas;</li>
+<li>Analisar séries temporais e dados indexados por datas;</li>
+<li>Integrar com outras bibliotecas como <code>matplotlib</code>, <code>numpy</code>, <code>seaborn</code> e <code>scikit-learn</code>.</li>
+</ul>
+</section>
+<section id="numpy" class="level3" data-number="7.0.2">
+<h3 data-number="7.0.2" class="anchored" data-anchor-id="numpy"><span class="header-section-number">7.0.2</span> <code>numpy</code></h3>
+<p><code>NumPy</code> É o pacote fundamental para computação científica com Python. Ele fornece um poderoso objeto de array multidimensional (<code>ndarray</code>), além de objetos derivados, como matrizes e arrays mascarados. Também oferece uma grande variedade de rotinas para operações rápidas sobre arrays, incluindo:</p>
+<ul>
+<li>Operações matemáticas e lógicas;</li>
+<li>Manipulação de forma (reshape);</li>
+<li>Ordenação e seleção de dados;</li>
+<li>Entrada e saída de arquivos (I/O);</li>
+<li>Transformadas de Fourier;</li>
+<li>Álgebra linear básica;</li>
+<li>Operações estatísticas básicas;</li>
+<li>Simulações aleatórias.</li>
+</ul>
+<p>O <code>numpy</code> serve como base para diversas outras bibliotecas científicas, sendo essencial em áreas como estatística, engenharia, aprendizado de máquina e modelagem matemática.</p>
+<hr>
+</section>
+<section id="matplotlib" class="level3" data-number="7.0.3">
+<h3 data-number="7.0.3" class="anchored" data-anchor-id="matplotlib"><span class="header-section-number">7.0.3</span> <code>matplotlib</code></h3>
+<p><code>Matplotlib</code> é uma biblioteca de visualização de dados em 2D. Com ela, é possível criar gráficos variados como:</p>
+<ul>
+<li>Gráficos de linha, barras, pizza, dispersão (scatter) e histogramas;</li>
+<li>Personalizações visuais com cores, títulos, legendas e rótulos;</li>
+<li>Exportação de gráficos como imagens (PNG, SVG, etc).</li>
+</ul>
+<p>É amplamente utilizada para análises exploratórias e apresentação de resultados em relatórios técnicos e científicos.</p>
+<hr>
+</section>
+<section id="requests" class="level3" data-number="7.0.4">
+<h3 data-number="7.0.4" class="anchored" data-anchor-id="requests"><span class="header-section-number">7.0.4</span> <code>requests</code></h3>
+<p>A biblioteca <code>requests</code> é uma das mais utilizadas para realizar <strong>requisições HTTP</strong> com Python. Ela permite:</p>
+<ul>
+<li>Acessar páginas web e APIs REST;</li>
+<li>Enviar e receber dados no formato JSON;</li>
+<li>Trabalhar com autenticação, cabeçalhos personalizados e parâmetros de URL.</li>
+</ul>
+<p>É uma ferramenta essencial para projetos que envolvem coleta de dados externos, automação de tarefas via web ou integração com serviços online.</p>
+<hr>
+</section>
+</section>
+<section id="conceitos-iniciais-da-linguagem-python." class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Conceitos iniciais da linguagem python.</h1>
+<p>Conhecida como a linguagem mais prática e com uma maior curva de aprendizado, a linguagem python é muito poderosa e amplamente utilizada no mundo de desenvolvimento. Python possui uma estrutura de escrita clara e simples, ganhando muita popularidade nos últimos anos devido sua facilidade de aprendizado e seu alto nível.</p>
+<p>lançada por <strong>Guido van Rossum</strong> em 1991 no <strong>Instituto de Pesquisa Nacional para Matemática e Ciência da Computação (CWI)</strong>, atualmente possui um modelo de código aberto, gerenciado sem fins lucrativos pela organização <strong>Python Software Foundation</strong>.</p>
+<p>O nome Python teve a sua origem no grupo humorístico britânico <strong>Monty Python</strong>, criador do programa <strong>Monty Python’s Flying Circus</strong>, embora muitas pessoas façam associação com o réptil do mesmo nome, em português <strong>píton</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagens/imagem24.jpg" class="img-fluid figure-img"></p>
+<figcaption>Monty Python’s Flying Circus</figcaption>
+</figure>
+</div>
+<section id="instalação-da-linguagem-python." class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="instalação-da-linguagem-python."><span class="header-section-number">8.1</span> Instalação da linguagem python.</h2>
+<ul>
+<li>Para instalar o python, acesse esse link:<a href="https://www.python.org/downloads">python</a>, e siga as instruições de download.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagens/imagem25.png" class="img-fluid figure-img"></p>
+<figcaption>Website de instalação do python</figcaption>
+</figure>
+</div>
+</section>
+<section id="tipos-de-dados" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="tipos-de-dados"><span class="header-section-number">8.2</span> Tipos de dados:</h2>
+<ul>
+<li><ol type="1">
+<li><code>int</code>: Números inteiros (ex: <code>10</code>, <code>-3</code>, <code>0</code>) Seguem a estrutura simples de número sem ponto decimal.</li>
+</ol></li>
+</ul>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>idade <span class="op">=</span> <span class="dv">19</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Idade:"</span>, idade)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><ol start="2" type="1">
+<li><code>float</code>: Números reais ou decimais (ex: <code>3.14</code>, <code>-2.0</code>) devem incluir ponto (<code>.</code>) como separador.</li>
+</ol></li>
+</ul>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>salario <span class="op">=</span> <span class="fl">1518.00</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Salário:"</span>, salario)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><ol start="3" type="1">
+<li><code>str</code>: Sequências de caracteres (ex: <code>"texto"</code>, <code>'Python'</code>) sempre entre aspas simples <code>'texto'</code> ou duplas <code>"texto"</code>.</li>
+</ol></li>
+</ul>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a> nome <span class="op">=</span> <span class="st">"Leony"</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Nome:"</span>, nome)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><ol start="4" type="1">
+<li><code>bool</code>: Valores lógicos (ex: <code>True</code>, <code>False</code>) escritos com inicial maiúscula: <code>True</code> ou <code>False</code>.</li>
+</ol></li>
+</ul>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a> aprovado <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Está aprovado?"</span>, aprovado)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemplo:</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>media <span class="op">=</span> <span class="fl">7.5</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Aprovado?"</span>, media <span class="op">&gt;=</span> <span class="dv">7</span>)  <span class="co"># retorna True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="variáveis-e-operadores-básicos" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="variáveis-e-operadores-básicos"><span class="header-section-number">8.3</span> Variáveis e operadores básicos</h2>
+<hr>
+</section>
+<section id="operadores-aritméticos" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="operadores-aritméticos"><span class="header-section-number">8.4</span> Operadores Aritméticos</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Operador</th>
+<th>Descrição</th>
+<th>Exemplo</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>+</code></td>
+<td>Adição</td>
+<td><code>1 + 1</code></td>
+<td><code>2</code></td>
+</tr>
+<tr class="even">
+<td><code>-</code></td>
+<td>Subtração</td>
+<td><code>2 - 1</code></td>
+<td><code>1</code></td>
+</tr>
+<tr class="odd">
+<td><code>*</code></td>
+<td>Multiplicação</td>
+<td><code>2 * 2</code></td>
+<td><code>4</code></td>
+</tr>
+<tr class="even">
+<td><code>/</code></td>
+<td>Divisão</td>
+<td><code>8 / 2</code></td>
+<td><code>4.0</code></td>
+</tr>
+<tr class="odd">
+<td><code>//</code></td>
+<td>Divisão inteira</td>
+<td><code>9 // 2</code></td>
+<td><code>4</code></td>
+</tr>
+<tr class="even">
+<td><code>%</code></td>
+<td>Resto da divisão</td>
+<td><code>10 % 3</code></td>
+<td><code>1</code></td>
+</tr>
+<tr class="odd">
+<td><code>**</code></td>
+<td>Potência</td>
+<td><code>2 ** 3</code></td>
+<td><code>8</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="operadores-relacionais-comparação" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="operadores-relacionais-comparação"><span class="header-section-number">8.5</span> Operadores Relacionais (Comparação)</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Operador</th>
+<th>Descrição</th>
+<th>Exemplo</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>==</code></td>
+<td>Igual</td>
+<td><code>5 == 5</code></td>
+<td><code>True</code></td>
+</tr>
+<tr class="even">
+<td><code>!=</code></td>
+<td>Diferente</td>
+<td><code>3 != 4</code></td>
+<td><code>True</code></td>
+</tr>
+<tr class="odd">
+<td><code>&gt;</code></td>
+<td>Maior que</td>
+<td><code>7 &gt; 2</code></td>
+<td><code>True</code></td>
+</tr>
+<tr class="even">
+<td><code>&lt;</code></td>
+<td>Menor que</td>
+<td><code>2 &lt; 7</code></td>
+<td><code>True</code></td>
+</tr>
+<tr class="odd">
+<td><code>&gt;=</code></td>
+<td>Maior ou igual</td>
+<td><code>5 &gt;= 5</code></td>
+<td><code>True</code></td>
+</tr>
+<tr class="even">
+<td><code>&lt;=</code></td>
+<td>Menor ou igual</td>
+<td><code>3 &lt;= 2</code></td>
+<td><code>False</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="operadores-lógicos" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="operadores-lógicos"><span class="header-section-number">8.6</span> Operadores Lógicos</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Operador</th>
+<th>Descrição</th>
+<th>Exemplo</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>and</code></td>
+<td>E (ambos verdadeiros)</td>
+<td><code>True and False</code></td>
+<td><code>False</code></td>
+</tr>
+<tr class="even">
+<td><code>or</code></td>
+<td>Ou (um verdadeiro)</td>
+<td><code>True or False</code></td>
+<td><code>True</code></td>
+</tr>
+<tr class="odd">
+<td><code>not</code></td>
+<td>Negação</td>
+<td><code>not True</code></td>
+<td><code>False</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="listas-tuplas-e-dicionários" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="listas-tuplas-e-dicionários"><span class="header-section-number">8.7</span> Listas, tuplas e dicionários</h2>
+<hr>
+<section id="listas-list" class="level3" data-number="8.7.1">
+<h3 data-number="8.7.1" class="anchored" data-anchor-id="listas-list"><span class="header-section-number">8.7.1</span> Listas (<code>list</code>)</h3>
+<p>Estrutura <strong>mutável</strong> (pode ser alterada). Armazena vários valores em uma única variável e utiliza colchetes <code>[]</code></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>frutas <span class="op">=</span> [<span class="st">"maçã"</span>, <span class="st">"banana"</span>, <span class="st">"laranja"</span>]</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(frutas[<span class="dv">0</span>])       <span class="co"># maçã</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>frutas.append(<span class="st">"uva"</span>)   <span class="co"># adiciona um novo item</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(frutas) <span class="co"># retorna a estrutura com o novo item adicionado</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>frutas.remove(<span class="st">"banana"</span>) <span class="co"># remove um item dessa lista</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(frutas) <span class="co"># retorna </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="tuplas-tuple" class="level3" data-number="8.7.2">
+<h3 data-number="8.7.2" class="anchored" data-anchor-id="tuplas-tuple"><span class="header-section-number">8.7.2</span> Tuplas (<code>tuple</code>)</h3>
+<p>Estrutura <strong>imutável</strong> (não pode ser alterada depois de criada). Usa parênteses <code>()</code>.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>ponto <span class="op">=</span> (<span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ponto[<span class="dv">0</span>])    <span class="co"># 3</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ponto[0] = 10    # Erro! Tuplas não podem ser modificadas</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="dicionarios-dict" class="level3" data-number="8.7.3">
+<h3 data-number="8.7.3" class="anchored" data-anchor-id="dicionarios-dict"><span class="header-section-number">8.7.3</span> Dicionarios (<code>dict</code>)</h3>
+<p>Estrutura de <strong>pares chave-valor</strong>. Usa chaves <strong>{}</strong>. Permite acessar valores por uma <strong>“chave”</strong> nomeada.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>pessoa <span class="op">=</span> {<span class="st">"nome"</span>: <span class="st">"Ana"</span>, <span class="st">"idade"</span>: <span class="dv">25</span>}</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pessoa[<span class="st">"nome"</span>])   <span class="co"># Ana</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>pessoa[<span class="st">"idade"</span>] <span class="op">=</span> <span class="dv">26</span>     <span class="co"># atualiza valor</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="operações-comuns-com-dicionários" class="level4" data-number="8.7.3.1">
+<h4 data-number="8.7.3.1" class="anchored" data-anchor-id="operações-comuns-com-dicionários"><span class="header-section-number">8.7.3.1</span> Operações Comuns com Dicionários</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 36%">
+<col style="width: 41%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Operação</th>
+<th>Exemplo</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Criar dicionário</td>
+<td><code>pessoa = {"nome": "Ana", "idade": 25}</code></td>
+<td>Dicionário com duas chaves</td>
+</tr>
+<tr class="even">
+<td>Acessar valor</td>
+<td><code>pessoa["nome"]</code></td>
+<td><code>"Ana"</code></td>
+</tr>
+<tr class="odd">
+<td>Atualizar valor</td>
+<td><code>pessoa["idade"] = 26</code></td>
+<td>Atualiza a idade para <code>26</code></td>
+</tr>
+<tr class="even">
+<td>Adicionar novo par</td>
+<td><code>pessoa["cidade"] = "SP"</code></td>
+<td>Adiciona a chave <code>"cidade"</code> com valor <code>"SP"</code></td>
+</tr>
+<tr class="odd">
+<td>Remover par</td>
+<td><code>del pessoa["idade"]</code></td>
+<td>Remove a chave <code>"idade"</code></td>
+</tr>
+<tr class="even">
+<td>Ver todas as chaves</td>
+<td><code>pessoa.keys()</code></td>
+<td><code>dict_keys(['nome', 'cidade'])</code></td>
+</tr>
+<tr class="odd">
+<td>Ver todos os valores</td>
+<td><code>pessoa.values()</code></td>
+<td><code>dict_values(['Ana', 'SP'])</code></td>
+</tr>
+<tr class="even">
+<td>Ver todos os itens</td>
+<td><code>pessoa.items()</code></td>
+<td><code>dict_items([('nome', 'Ana'), ('cidade', 'SP')])</code></td>
+</tr>
+<tr class="odd">
+<td>Verificar chave</td>
+<td><code>"nome" in pessoa</code></td>
+<td><code>True</code> #se a chave existir</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>Estruturas de controle: if, else, elif, for, while;</p>
+<p>Funções: definição com def, parâmetros, retorno;</p>
+<p>Importação de bibliotecas com import;</p>
+<hr>
+</section>
+</section>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

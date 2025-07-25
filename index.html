@@ -146,6 +146,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#tuplas-tuple" id="toc-tuplas-tuple" class="nav-link" data-scroll-target="#tuplas-tuple"><span class="header-section-number">8.7.2</span> Tuplas (<code>tuple</code>)</a></li>
   <li><a href="#dicionarios-dict" id="toc-dicionarios-dict" class="nav-link" data-scroll-target="#dicionarios-dict"><span class="header-section-number">8.7.3</span> Dicionarios (<code>dict</code>)</a></li>
   </ul></li>
+  <li><a href="#estruturas-de-controle-em-python" id="toc-estruturas-de-controle-em-python" class="nav-link" data-scroll-target="#estruturas-de-controle-em-python"><span class="header-section-number">8.8</span> Estruturas de Controle em Python</a></li>
+  </ul></li>
+  <li><a href="#funções-definição-com-def-parâmetros-retorno" id="toc-funções-definição-com-def-parâmetros-retorno" class="nav-link" data-scroll-target="#funções-definição-com-def-parâmetros-retorno"><span class="header-section-number">9</span> Funções: definição com def, parâmetros, retorno;</a>
+  <ul class="collapse">
+  <li><a href="#def" id="toc-def" class="nav-link" data-scroll-target="#def"><span class="header-section-number">9.1</span> <code>def</code></a></li>
+  <li><a href="#parâmetros" id="toc-parâmetros" class="nav-link" data-scroll-target="#parâmetros"><span class="header-section-number">9.2</span> <code>parâmetros</code></a></li>
+  <li><a href="#retorno" id="toc-retorno" class="nav-link" data-scroll-target="#retorno"><span class="header-section-number">9.3</span> <code>retorno</code></a></li>
+  </ul></li>
+  <li><a href="#importação-de-bibliotecas-com-import" id="toc-importação-de-bibliotecas-com-import" class="nav-link" data-scroll-target="#importação-de-bibliotecas-com-import"><span class="header-section-number">10</span> Importação de bibliotecas com import</a>
+  <ul class="collapse">
+  <li><a href="#importações-padrão" id="toc-importações-padrão" class="nav-link" data-scroll-target="#importações-padrão"><span class="header-section-number">10.0.1</span> Importações padrão</a></li>
+  <li><a href="#importações-específicas" id="toc-importações-específicas" class="nav-link" data-scroll-target="#importações-específicas"><span class="header-section-number">10.0.2</span> Importações específicas</a></li>
+  <li><a href="#importações-com-apelidos" id="toc-importações-com-apelidos" class="nav-link" data-scroll-target="#importações-com-apelidos"><span class="header-section-number">10.0.3</span> Importações com apelidos</a></li>
+  <li><a href="#demonstração-básica-de-uso" id="toc-demonstração-básica-de-uso" class="nav-link" data-scroll-target="#demonstração-básica-de-uso"><span class="header-section-number">10.0.4</span> Demonstração básica de uso</a></li>
+  <li><a href="#exemplo-com-pandas-e-numpy" id="toc-exemplo-com-pandas-e-numpy" class="nav-link" data-scroll-target="#exemplo-com-pandas-e-numpy"><span class="header-section-number">10.0.5</span> Exemplo com pandas e numpy</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -179,7 +194,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="introdução" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Introdução</h1>
-<hr>
+<ul>
+<li>Este relatório tem como objetivo a criação de um trabalho acadêmico utilizando a ferramenta Quarto, com saída em HTML.. O projeto foi desenvolvido no sistema Windows, utilizando a IDE Positron, que oferece suporte nativo ao Quarto e facilita a edição dos arquivos .qmd. O modelo escolhido foi o Tufte,-style por seu design limpo e foco em conteúdo técnico. Durante o processo, foram aplicados conceitos fundamentais de Git e GitHub para versionamento e publicação do projeto em um repositório online. Também foi utilizado o pip, gerenciador de pacotes do Python, para instalar bibliotecas como <strong>pandas, numpy, matplotlib e requests</strong>. A linguagem Python foi empregada com foco em seus conceitos iniciais, como <strong>tipos de dados, estruturas de controle, funções e boas práticas de codificação</strong>. —</li>
+</ul>
 </section>
 <section id="história-do-git-e-github" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> História do Git e GitHub</h1>
@@ -904,12 +921,133 @@ Important
 </tbody>
 </table>
 <hr>
-<p>Estruturas de controle: if, else, elif, for, while;</p>
-<p>Funções: definição com def, parâmetros, retorno;</p>
-<p>Importação de bibliotecas com import;</p>
-<hr>
 </section>
 </section>
+</section>
+<section id="estruturas-de-controle-em-python" class="level2" data-number="8.8">
+<h2 data-number="8.8" class="anchored" data-anchor-id="estruturas-de-controle-em-python"><span class="header-section-number">8.8</span> Estruturas de Controle em Python</h2>
+<p>Estruturas de controle permitem que o programa tome decisões e repita ações com base em condições. As principais em Python são: <code>if</code>, <code>else</code>, <code>elif</code>, <code>for</code> e <code>while</code>.</p>
+<ul>
+<li><ol type="1">
+<li><code>if</code></li>
+</ol></li>
+</ul>
+<p>A estrutura <code>if</code> é usada para executar um <strong>bloco de código somente se uma condição for verdadeira</strong>.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>nota <span class="op">=</span> <span class="dv">8</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> nota <span class="op">&gt;=</span> <span class="dv">7</span>:</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Aprovado"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><ol start="2" type="1">
+<li><code>else</code></li>
+</ol></li>
+</ul>
+<p>O else é usado em conjunto com o if e serve para capturar todas as outras situações quando a condição do if é falsa.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>nota <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> nota <span class="op">&gt;=</span> <span class="dv">7</span>:</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Aprovado"</span>)</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Reprovado"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><ol start="3" type="1">
+<li><code>elif</code> O <code>elif</code> (abreviação de “else if”) é usado para testar uma nova condição quando o <code>if</code> falha. Você pode ter vários <code>elif</code>, mas apenas um <code>if</code> e, se quiser, um else final.</li>
+</ol></li>
+</ul>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>nota <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> nota <span class="op">&gt;=</span> <span class="dv">9</span>:</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Excelente"</span>)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> nota <span class="op">&gt;=</span> <span class="dv">7</span>:</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Aprovado"</span>)</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> nota <span class="op">&gt;=</span> <span class="dv">5</span>:</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Recuperação"</span>)</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Reprovado"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><ol start="4" type="1">
+<li><code>for</code> A estrutura <code>for</code> é usada para iterar sobre uma sequência <strong>(como uma lista, tupla, string ou um intervalo numérico)</strong> e executar um bloco de código para cada item da sequência.</li>
+</ol></li>
+<li>Para escrevermos o for Loop devemos obedecer a seguinte sintaxe:</li>
+</ul>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> seq <span class="kw">in</span> sequencia:</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(seq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><ol start="5" type="1">
+<li><code>while</code></li>
+</ol></li>
+</ul>
+<p><code>while</code> cria um laço que executa uma declaração até que o teste da condição for falsa (false). A condição é avaliada depois que o bloco de código é executado, resultando que uma declaração seja executada pelo menos uma vez.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>contador <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> contador <span class="op">&lt;</span> <span class="dv">5</span>:</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"O contador está em: </span><span class="sc">{</span>contador<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    contador <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Loop encerrado!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="funções-definição-com-def-parâmetros-retorno" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Funções: definição com def, parâmetros, retorno;</h1>
+<section id="def" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="def"><span class="header-section-number">9.1</span> <code>def</code></h2>
+<p>A palavra-chave <code>def</code> é usada para declarar uma função. por exemplo:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> saudacao():</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Oi, sou leony."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="parâmetros" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="parâmetros"><span class="header-section-number">9.2</span> <code>parâmetros</code></h2>
+<p>parâmetros de função são variáveis listadas entre parênteses na definição da função e servem como marcadores de posição para os valores que a função espera receber. Argumentos são os valores reais que são passados para a função quando ela é chamada.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> saudacao(nome, sobrenome<span class="op">=</span><span class="st">""</span>):</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> sobrenome:</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"Olá, </span><span class="sc">{</span>nome<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>sobrenome<span class="sc">}</span><span class="ss">!"</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span>:</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"Olá, </span><span class="sc">{</span>nome<span class="sc">}</span><span class="ss">!"</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(saudacao(<span class="st">"João"</span>, <span class="st">"Silva"</span>))  <span class="co"># Saída: Olá, João Silva!</span></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Chamando a função com apenas um argumento (sobrenome padrão)</span></span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(saudacao(<span class="st">"Maria"</span>))  <span class="co"># Saída: Olá, Maria!</span></span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Chamando a função com argumentos por nome</span></span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(saudacao(sobrenome<span class="op">=</span><span class="st">"Santos"</span>, nome<span class="op">=</span><span class="st">"Pedro"</span>)) <span class="co"># Saída: Olá, Pedro Santos!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="retorno" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="retorno"><span class="header-section-number">9.3</span> <code>retorno</code></h2>
+<p>A instrução <code>return</code> em Python é usada para encerrar a execução de uma função e retornar um valor ao chamador. Se nenhuma instrução <code>return</code> for utilizada ou se <code>return</code> for usado sem um valor, a função retornará implicitamente <code>None</code>.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> minha_funcao(parametro):</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Corpo da função</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  resultado <span class="op">=</span> parametro <span class="op">*</span> <span class="dv">2</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> resultado  <span class="co"># Retorna o resultado</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="importação-de-bibliotecas-com-import" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Importação de bibliotecas com import</h1>
+<p>No Python, você pode importar bibliotecas instaladas anteriormente como no tópico <a href="Exemplo-de-instalação-e-alteração-de-pacotes">6.1.1</a>, usando a instrução import. Isso permite acessar funções, classes e objetos úteis que facilitam muitos projetos.</p>
+<section id="importações-padrão" class="level3" data-number="10.0.1">
+<h3 data-number="10.0.1" class="anchored" data-anchor-id="importações-padrão"><span class="header-section-number">10.0.1</span> Importações padrão</h3>
+<div class="sourceCode" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math      <span class="co"># Funções matemáticas</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random    <span class="co"># Geração de números aleatórios</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> datetime  <span class="co"># Manipulação de datas e horários</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="importações-específicas" class="level3" data-number="10.0.2">
+<h3 data-number="10.0.2" class="anchored" data-anchor-id="importações-específicas"><span class="header-section-number">10.0.2</span> Importações específicas</h3>
+<div class="sourceCode" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> pi, sqrt  <span class="co"># Apenas pi e raiz quadrada</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="importações-com-apelidos" class="level3" data-number="10.0.3">
+<h3 data-number="10.0.3" class="anchored" data-anchor-id="importações-com-apelidos"><span class="header-section-number">10.0.3</span> Importações com apelidos</h3>
+<div class="sourceCode" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd   <span class="co"># Análise e manipulação de dados</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np    <span class="co"># Operações numéricas e matrizes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="demonstração-básica-de-uso" class="level3" data-number="10.0.4">
+<h3 data-number="10.0.4" class="anchored" data-anchor-id="demonstração-básica-de-uso"><span class="header-section-number">10.0.4</span> Demonstração básica de uso</h3>
+<div class="sourceCode" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Raiz quadrada de 16: </span><span class="sc">{</span>math<span class="sc">.</span>sqrt(<span class="dv">16</span>)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Número aleatório entre 1 e 100: </span><span class="sc">{</span>random<span class="sc">.</span>randint(<span class="dv">1</span>, <span class="dv">100</span>)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Data e hora atual: </span><span class="sc">{</span>datetime<span class="sc">.</span>datetime<span class="sc">.</span>now()<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"O valor de pi é aproximadamente: </span><span class="sc">{</span>pi<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Raiz quadrada de 25: </span><span class="sc">{</span>sqrt(<span class="dv">25</span>)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="exemplo-com-pandas-e-numpy" class="level3" data-number="10.0.5">
+<h3 data-number="10.0.5" class="anchored" data-anchor-id="exemplo-com-pandas-e-numpy"><span class="header-section-number">10.0.5</span> Exemplo com pandas e numpy</h3>
+<div class="sourceCode" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>dados <span class="op">=</span> pd.DataFrame(np.random.rand(<span class="dv">4</span>, <span class="dv">2</span>), columns<span class="op">=</span>[<span class="st">"Coluna A"</span>, <span class="st">"Coluna B"</span>])</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Tabela gerada com pandas e numpy:"</span>)</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dados)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 

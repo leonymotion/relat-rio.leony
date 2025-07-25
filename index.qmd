@@ -8,14 +8,15 @@ format:
     toc-title: "Índice"
     number-sections: true
     theme: cosmo
-    css: styles.css  # (opcional, se quiser personalizar)
+    css: styles.css
 editor: visual
 
 ---
 
 # Introdução
 
-
+- Este relatório tem como objetivo a criação de um trabalho acadêmico utilizando a ferramenta Quarto, com saída em HTML.. O projeto foi desenvolvido no sistema Windows, utilizando a IDE Positron, que oferece suporte nativo ao Quarto e facilita a edição dos arquivos .qmd. O modelo escolhido foi o Tufte,-style por seu design limpo e foco em conteúdo técnico.
+Durante o processo, foram aplicados conceitos fundamentais de Git e GitHub para versionamento e publicação do projeto em um repositório online. Também foi utilizado o pip, gerenciador de pacotes do Python, para instalar bibliotecas como **pandas, numpy, matplotlib e requests**. A linguagem Python foi empregada com foco em seus conceitos iniciais, como **tipos de dados, estruturas de controle, funções e boas práticas de codificação**.
 ---
 
 # História do Git e GitHub
@@ -528,11 +529,144 @@ pessoa["idade"] = 26     # atualiza valor
 | Verificar chave      | `"nome" in pessoa`                  | `True` #se a chave existir                |
 
 ---
+## Estruturas de Controle em Python
 
-Estruturas de controle: if, else, elif, for, while;
+Estruturas de controle permitem que o programa tome decisões e repita ações com base em condições. As principais em Python são: `if`, `else`, `elif`, `for` e `while`.
 
-Funções: definição com def, parâmetros, retorno;
+- 1. `if`
 
-Importação de bibliotecas com import; 
+A estrutura `if` é usada para executar um **bloco de código somente se uma condição for verdadeira**.
 
----
+```python
+nota = 8
+
+if nota >= 7:
+    print("Aprovado")
+```
+
+- 2.  `else`
+
+O else é usado em conjunto com o if e serve para capturar todas as outras situações quando a condição do if é falsa.
+
+```python
+nota = 5
+
+if nota >= 7:
+    print("Aprovado")
+else:
+    print("Reprovado")
+```
+
+- 3. `elif`
+O `elif` (abreviação de “else if”) é usado para testar uma nova condição quando o `if`  falha.
+Você pode ter vários `elif`, mas apenas um `if` e, se quiser, um else final.
+
+```python
+nota = 6
+if nota >= 9:
+    print("Excelente")
+elif nota >= 7:
+    print("Aprovado")
+elif nota >= 5:
+    print("Recuperação")
+else:
+    print("Reprovado")
+```
+
+- 4. `for`
+A estrutura `for` é usada para iterar sobre uma sequência **(como uma lista, tupla, string ou um intervalo numérico)** e executar um bloco de código para cada item da sequência.
+
+- Para escrevermos o for Loop devemos obedecer a seguinte sintaxe:
+
+```python
+for seq in sequencia:
+    print(seq)
+```
+
+- 5. `while`
+
+`while` cria um laço que executa uma declaração até que o teste da condição for falsa (false). A condição é avaliada depois que o bloco de código é executado, resultando que uma declaração seja executada pelo menos uma vez.
+
+```python 
+contador = 0
+while contador < 5:
+    print(f"O contador está em: {contador}")
+    contador += 1
+print("Loop encerrado!")
+```
+
+# Funções: definição com def, parâmetros, retorno;
+
+## `def`
+A palavra-chave `def` é usada para declarar uma função. por exemplo:
+
+```python
+def saudacao():
+    print("Oi, sou leony.")
+```
+## `parâmetros`
+parâmetros de função são variáveis listadas entre parênteses na definição da função e servem como marcadores de posição para os valores que a função espera receber. Argumentos são os valores reais que são passados para a função quando ela é chamada. 
+
+```python
+def saudacao(nome, sobrenome=""):
+ 
+  if sobrenome:
+    return f"Olá, {nome} {sobrenome}!"
+  else:
+    return f"Olá, {nome}!"
+
+print(saudacao("João", "Silva"))  # Saída: Olá, João Silva!
+# Chamando a função com apenas um argumento (sobrenome padrão)
+print(saudacao("Maria"))  # Saída: Olá, Maria!
+# Chamando a função com argumentos por nome
+print(saudacao(sobrenome="Santos", nome="Pedro")) # Saída: Olá, Pedro Santos!
+```
+
+## `retorno`
+
+A instrução `return` em Python é usada para encerrar a execução de uma função e retornar um valor ao chamador. Se nenhuma instrução `return` for utilizada ou se `return` for usado sem um valor, a função retornará implicitamente `None`. 
+
+```python
+def minha_funcao(parametro):
+  # Corpo da função
+  resultado = parametro * 2
+  return resultado  # Retorna o resultado
+```
+
+# Importação de bibliotecas com import
+
+No Python, você pode importar bibliotecas instaladas anteriormente como no tópico [6.1.1](Exemplo-de-instalação-e-alteração-de-pacotes), usando a instrução import. Isso permite acessar funções, classes e objetos úteis que facilitam muitos projetos.
+
+### Importações padrão
+
+```python
+import math      # Funções matemáticas
+import random    # Geração de números aleatórios
+import datetime  # Manipulação de datas e horários
+```
+
+### Importações específicas
+
+```python
+from math import pi, sqrt  # Apenas pi e raiz quadrada
+```
+
+### Importações com apelidos
+```python
+import pandas as pd   # Análise e manipulação de dados
+import numpy as np    # Operações numéricas e matrizes
+```
+### Demonstração básica de uso
+```python
+print(f"Raiz quadrada de 16: {math.sqrt(16)}")
+print(f"Número aleatório entre 1 e 100: {random.randint(1, 100)}")
+print(f"Data e hora atual: {datetime.datetime.now()}")
+print(f"O valor de pi é aproximadamente: {pi}")
+print(f"Raiz quadrada de 25: {sqrt(25)}")
+```
+### Exemplo com pandas e numpy
+```python
+dados = pd.DataFrame(np.random.rand(4, 2), columns=["Coluna A", "Coluna B"])
+print("\nTabela gerada com pandas e numpy:")
+print(dados)
+```

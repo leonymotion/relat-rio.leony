@@ -15,8 +15,10 @@ editor: visual
 
 # Introdução
 
-- Este relatório tem como objetivo a criação de um trabalho acadêmico utilizando a ferramenta Quarto, com saída em HTML.. O projeto foi desenvolvido no sistema Windows, utilizando a IDE Positron, que oferece suporte nativo ao Quarto e facilita a edição dos arquivos .qmd. O modelo escolhido foi o Tufte,-style por seu design limpo e foco em conteúdo técnico.
-Durante o processo, foram aplicados conceitos fundamentais de Git e GitHub para versionamento e publicação do projeto em um repositório online. Também foi utilizado o pip, gerenciador de pacotes do Python, para instalar bibliotecas como **pandas, numpy, matplotlib e requests**. A linguagem Python foi empregada com foco em seus conceitos iniciais, como **tipos de dados, estruturas de controle, funções e boas práticas de codificação**.
+- Este relatório tem como objetivo a criação de um trabalho acadêmico utilizando a ferramenta Quarto, com saída em HTML. 
+Foram aplicados conceitos fundamentais de Git e GitHub para versionamento e publicação do projeto em um repositório online. 
+Também foi utilizado o pip, gerenciador de pacotes do Python. 
+A linguagem Python foi empregada com foco em seus conceitos iniciais, como **tipos de dados, estruturas de controle, funções e importação de bibliotecas**.
 ---
 
 # História do Git e GitHub
@@ -173,7 +175,7 @@ git checkout nome   # Troca para uma branch
 
 ![](imagens/imagem10.png)
 
-- Após criar o repositório, utilizamos o comando `git remote add origin link do repositório` no git para conectar os z
+- Após criar o repositório, utilizamos o comando `git remote add origin link do repositório` no git para conectar o repositório do **GitHub** ao `git` da sua máquina.
 
 ![](imagens/imagem11.png)
 
@@ -304,7 +306,7 @@ Em alguns casos, o arquivo pode ter outro nome. Nesse caso, basta substituir o n
 
 ![Pacote instalado com sucesso](imagens/imagem19.png)
 
-### Atualizando o paconte instalado
+### Atualizando o pacote instalado
 
 ![Comando de atualização](imagens/imagem20.png)
 
@@ -656,6 +658,7 @@ from math import pi, sqrt  # Apenas pi e raiz quadrada
 import pandas as pd   # Análise e manipulação de dados
 import numpy as np    # Operações numéricas e matrizes
 ```
+
 ### Demonstração básica de uso
 ```python
 print(f"Raiz quadrada de 16: {math.sqrt(16)}")
@@ -664,9 +667,22 @@ print(f"Data e hora atual: {datetime.datetime.now()}")
 print(f"O valor de pi é aproximadamente: {pi}")
 print(f"Raiz quadrada de 25: {sqrt(25)}")
 ```
+
 ### Exemplo com pandas e numpy
 ```python
 dados = pd.DataFrame(np.random.rand(4, 2), columns=["Coluna A", "Coluna B"])
 print("\nTabela gerada com pandas e numpy:")
 print(dados)
 ```
+
+# Referências
+
+- [https://docs.pypi.org](https://docs.pypi.org)
+- [https://numpy.org/doc/stable](https://numpy.org/doc/stable)
+- [https://git-scm.com/book/pt-br/v2/Começando-Uma-Breve-História-do-Git](https://git-scm.com/book/pt-br/v2/Começando-Uma-Breve-História-do-Git)
+- [https://pt.wikipedia.org/wiki/Linus_Torvalds](https://pt.wikipedia.org/wiki/Linus_Torvalds)
+- [https://pythoniluminado.netlify.app](https://pythoniluminado.netlify.app)
+- [https://pt.m.wikipedia.org/wiki/Git](https://pt.m.wikipedia.org/wiki/Git)
+
+
+
